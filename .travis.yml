@@ -1,3 +1,11 @@
 language: elixir
-elixir: '1.5.2'
-otp_release: '20.2'
+
+matrix:
+  include:
+    - elixir: '1.5'
+    - elixir: '1.6'
+
+script:
+  - mix ecto.create
+  - mix ecto.migrate
+  - mix test
